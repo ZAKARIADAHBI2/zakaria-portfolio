@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zakaria Dahbi | AI & Full-Stack Developer</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #020617;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(34, 211, 238, .25), transparent 30%),
+        radial-gradient(circle at 80% 30%, rgba(217, 70, 239, .22), transparent 30%),
+        radial-gradient(circle at 50% 90%, rgba(59, 130, 246, .22), transparent 35%);
+      z-index: -2;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, .04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(circle, black, transparent 75%);
+      z-index: -1;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 18px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(2, 6, 23, .75);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(255, 255, 255, .1);
+      z-index: 99;
+    }
+
+    .logo {
+      font-weight: 900;
+      font-size: 22px;
+    }
+
+    .logo span {
+      color: #22d3ee;
+    }
+
+    nav a {
+      color: #cbd5e1;
+      text-decoration: none;
+      margin-left: 24px;
+      font-size: 14px;
+      transition: .3s;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+    section {
+      padding: 110px 8%;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 10px 18px;
+      border: 1px solid rgba(34, 211, 238, .35);
+      border-radius: 50px;
+      color: #a5f3fc;
+      background: rgba(34, 211, 238, .1);
+      margin-bottom: 25px;
+      font-size: 14px;
+    }
+
+    h1 {
+      font-size: clamp(46px, 7vw, 88px);
+      line-height: .95;
+      letter-spacing: -3px;
+      margin-bottom: 28px;
+    }
+
+    .gradient {
+      background: linear-gradient(90deg, #22d3ee, #60a5fa, #e879f9);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      color: #cbd5e1;
+      max-width: 650px;
+      font-size: 19px;
+      line-height: 1.8;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-top: 35px;
+    }
+
+    .btn {
+      padding: 14px 24px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: .3s;
+    }
+
+    .btn-primary {
+      background: white;
+      color: #020617;
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255, 255, 255, .18);
+      color: white;
+      background: rgba(255, 255, 255, .06);
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+    }
+
+    .intro-card {
+      position: relative;
+      border: 1px solid rgba(255, 255, 255, .12);
+      background: rgba(255, 255, 255, .06);
+      backdrop-filter: blur(20px);
+      border-radius: 36px;
+      padding: 22px;
+      box-shadow: 0 25px 80px rgba(0, 0, 0, .35);
+      overflow: hidden;
+    }
+
+    .intro-card::before {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      background: linear-gradient(135deg, rgba(34, 211, 238, .45), transparent, rgba(232, 121, 249, .35));
+      z-index: -1;
+      filter: blur(22px);
+      opacity: .8;
+    }
+
+    .profile-img {
+      width: 100%;
+  height: auto;
+  max-height: 520px;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, .12);
+  filter: saturate(1.08) contrast(1.05);
+  display: block;
+  background: rgba(2, 6, 23, .75);
+  padding: 10px;
+}
+
+    .intro-info {
+      margin-top: 18px;
+      padding: 20px;
+      border-radius: 26px;
+      background: rgba(2, 6, 23, .72);
+      border: 1px solid rgba(255, 255, 255, .1);
+    }
+
+    .intro-info h2 {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    .intro-info p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #cbd5e1;
+    }
+
+    .section-title {
+      max-width: 850px;
+      margin-bottom: 55px;
+    }
+
+    .section-title small {
+      color: #22d3ee;
+      font-weight: 800;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+    .section-title h2 {
+      margin-top: 14px;
+      font-size: clamp(36px, 5vw, 64px);
+      line-height: 1;
+      letter-spacing: -2px;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .card {
+      padding: 32px;
+      border-radius: 30px;
+      border: 1px solid rgba(255, 255, 255, .12);
+      background: rgba(255, 255, 255, .06);
+      backdrop-filter: blur(20px);
+      transition: .35s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(34, 211, 238, .18), transparent 35%);
+      opacity: 0;
+      transition: .35s;
+      pointer-events: none;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      border-color: rgba(34, 211, 238, .45);
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card h3 {
+      font-size: 26px;
+      margin-bottom: 14px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .card p {
+      color: #cbd5e1;
+      line-height: 1.7;
+      position: relative;
+      z-index: 1;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .tags span {
+      padding: 7px 12px;
+      border-radius: 50px;
+      background: rgba(15, 23, 42, .8);
+      border: 1px solid rgba(255, 255, 255, .12);
+      color: #cbd5e1;
+      font-size: 13px;
+    }
+
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .skill-box {
+      padding: 28px;
+      border-radius: 28px;
+      border: 1px solid rgba(255, 255, 255, .12);
+      background: rgba(255, 255, 255, .06);
+    }
+
+    .skill-box h3 {
+      margin-bottom: 18px;
+      font-size: 22px;
+    }
+
+    .skill-box p {
+      color: #cbd5e1;
+      line-height: 1.8;
+    }
+
+    .achievement-slider {
+      width: 100%;
+      height: 260px;
+      border-radius: 22px;
+      margin-bottom: 22px;
+      border: 1px solid rgba(255, 255, 255, .12);
+      background: rgba(2, 6, 23, .75);
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      z-index: 1;
+    }
+
+    .achievement-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      padding: 10px;
+      display: none;
+      opacity: 0;
+      transition: opacity .5s ease;
+    }
+
+    .achievement-img.active {
+      display: block;
+      opacity: 1;
+    }
+
+    .slider-hint {
+      position: absolute;
+      right: 12px;
+      bottom: 12px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(2, 6, 23, .78);
+      border: 1px solid rgba(255, 255, 255, .12);
+      font-size: 12px;
+      color: #cbd5e1;
+      z-index: 2;
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(2, 6, 23, .92);
+      backdrop-filter: blur(15px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+      padding: 24px;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 88%;
+      max-height: 85%;
+      object-fit: contain;
+      border-radius: 22px;
+      border: 1px solid rgba(255, 255, 255, .15);
+      background: rgba(2, 6, 23, .8);
+      padding: 8px;
+    }
+
+    .close-lightbox,
+    .lightbox-btn {
+      position: absolute;
+      border: none;
+      background: rgba(255, 255, 255, .12);
+      color: white;
+      cursor: pointer;
+      border-radius: 50%;
+      transition: .25s;
+    }
+
+    .close-lightbox:hover,
+    .lightbox-btn:hover {
+      background: rgba(255, 255, 255, .22);
+      transform: scale(1.05);
+    }
+
+    .close-lightbox {
+      top: 30px;
+      right: 35px;
+      width: 48px;
+      height: 48px;
+      font-size: 32px;
+    }
+
+    .lightbox-btn {
+      width: 55px;
+      height: 55px;
+      font-size: 42px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .lightbox-btn:hover {
+      transform: translateY(-50%) scale(1.05);
+    }
+
+    .prev {
+      left: 35px;
+    }
+
+    .next {
+      right: 35px;
+    }
+
+
+    .project-card {
+      cursor: pointer;
+    }
+
+    .project-card::after {
+      content: "Click to view architecture";
+      position: absolute;
+      right: 22px;
+      bottom: 22px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(34, 211, 238, .12);
+      border: 1px solid rgba(34, 211, 238, .25);
+      color: #a5f3fc;
+      font-size: 12px;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: .3s;
+      z-index: 2;
+    }
+
+    .project-card:hover::after {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .project-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 998;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 28px;
+      background: rgba(2, 6, 23, .92);
+      backdrop-filter: blur(18px);
+    }
+
+    .project-modal.active {
+      display: flex;
+    }
+
+    .project-modal-content {
+      width: min(1100px, 96vw);
+      max-height: 88vh;
+      overflow-y: auto;
+      border-radius: 34px;
+      border: 1px solid rgba(255, 255, 255, .14);
+      background:
+        radial-gradient(circle at top right, rgba(34, 211, 238, .16), transparent 35%),
+        radial-gradient(circle at bottom left, rgba(232, 121, 249, .12), transparent 35%),
+        rgba(15, 23, 42, .96);
+      box-shadow: 0 30px 90px rgba(0, 0, 0, .45);
+      padding: 34px;
+      position: relative;
+    }
+
+    .close-project-modal {
+      position: absolute;
+      top: 22px;
+      right: 22px;
+      width: 46px;
+      height: 46px;
+      border: none;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .12);
+      color: white;
+      font-size: 30px;
+      cursor: pointer;
+      transition: .25s;
+    }
+
+    .close-project-modal:hover {
+      background: rgba(255, 255, 255, .22);
+      transform: scale(1.05);
+    }
+
+    .modal-kicker {
+      color: #22d3ee;
+      font-size: 13px;
+      text-transform: uppercase;
+      font-weight: 800;
+      letter-spacing: 3px;
+      margin-bottom: 12px;
+    }
+
+    .project-modal h2 {
+      font-size: clamp(32px, 5vw, 56px);
+      line-height: 1;
+      letter-spacing: -2px;
+      margin-bottom: 16px;
+      padding-right: 52px;
+    }
+
+    .modal-desc {
+      color: #cbd5e1;
+      font-size: 17px;
+      line-height: 1.8;
+      max-width: 850px;
+      margin-bottom: 28px;
+    }
+
+    .architecture-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin: 28px 0;
+    }
+
+    .arch-step {
+      position: relative;
+      padding: 18px;
+      min-height: 145px;
+      border-radius: 22px;
+      border: 1px solid rgba(255, 255, 255, .12);
+      background: rgba(255, 255, 255, .06);
+    }
+
+    .arch-step span {
+      display: inline-flex;
+      width: 34px;
+      height: 34px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: white;
+      color: #020617;
+      font-weight: 900;
+      margin-bottom: 14px;
+    }
+
+    .arch-step h4 {
+      font-size: 17px;
+      margin-bottom: 8px;
+    }
+
+    .arch-step p {
+      color: #cbd5e1;
+      line-height: 1.55;
+      font-size: 14px;
+    }
+
+    .arch-step:not(:last-child)::after {
+      content: "→";
+      position: absolute;
+      right: -15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #22d3ee;
+      font-size: 24px;
+      z-index: 3;
+    }
+
+    .modal-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .modal-box {
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, .12);
+      background: rgba(2, 6, 23, .45);
+      padding: 22px;
+    }
+
+    .modal-box h3 {
+      font-size: 21px;
+      margin-bottom: 14px;
+    }
+
+    .modal-box ul {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .modal-box li {
+      color: #cbd5e1;
+      line-height: 1.6;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .modal-box li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #22d3ee;
+      font-weight: 900;
+    }
+
+    .modal-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .modal-tech span {
+      padding: 8px 13px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, .12);
+      background: rgba(255, 255, 255, .06);
+      color: #dbeafe;
+      font-size: 13px;
+    }
+
+    @media (max-width: 900px) {
+
+      .architecture-grid,
+      .modal-columns {
+        grid-template-columns: 1fr;
+      }
+
+      .arch-step:not(:last-child)::after {
+        content: "↓";
+        right: 50%;
+        top: auto;
+        bottom: -22px;
+        transform: translateX(50%);
+      }
+
+      .project-modal-content {
+        padding: 26px;
+      }
+    }
+
+    .contact {
+      text-align: center;
+      max-width: 900px;
+      margin: auto;
+      border: 1px solid rgba(255, 255, 255, .12);
+      background: rgba(255, 255, 255, .06);
+      border-radius: 36px;
+      padding: 60px 30px;
+      backdrop-filter: blur(20px);
+    }
+
+    .contact h2 {
+      font-size: clamp(36px, 5vw, 60px);
+      margin-bottom: 20px;
+    }
+
+    .contact p {
+      color: #cbd5e1;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    footer {
+      text-align: center;
+      color: #94a3b8;
+      padding: 30px;
+      border-top: 1px solid rgba(255, 255, 255, .08);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(35px);
+      transition: .8s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 900px) {
+      header {
+        padding: 16px 6%;
+      }
+
+      nav {
+        display: none;
+      }
+
+      section {
+        padding: 90px 6%;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 140px;
+      }
+
+      .projects,
+      .skills {
+        grid-template-columns: 1fr;
+      }
+
+      
+
+      .achievement-slider {
+        height: 230px;
+      }
+
+      .lightbox img {
+        max-width: 92%;
+        max-height: 72%;
+      }
+
+      .prev {
+        left: 18px;
+      }
+
+      .next {
+        right: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">Zakaria<span>.</span></div>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="reveal">
+      <div class="badge">AI Engineer • Full-Stack Developer • Research</div>
+
+      <h1>
+        Building intelligent systems for the
+        <span class="gradient">future.</span>
+      </h1>
+
+      <p>
+        I’m Zakaria Dahbi, an AI and full-stack developer focused on turning data into intelligent products.
+        My work combines machine learning, hydrological forecasting, computer vision, web development and
+        decision-support systems.
+      </p>
+
+      <div class="buttons">
+        <a href="#projects" class="btn btn-primary">Explore Projects</a>
+        <a href="https://github.com/ZAKARIADAHBI2" target="_blank" class="btn btn-secondary">GitHub</a>
+        <a href="https://www.linkedin.com/in/zakaria-dahbi-133b7a17a/" target="_blank"
+          class="btn btn-secondary">LinkedIn</a>
+      </div>
+    </div>
+
+    <div class="intro-card reveal">
+      <img src="images/me.png" alt="Zakaria Dahbi profile photo" class="profile-img">
+
+      <div class="intro-info">
+        <h2>Zakaria Dahbi</h2>
+        <p>
+          AI Engineer & Full-Stack Developer building useful intelligent systems with Python, machine learning,
+          React, Java, Spring Boot and data-driven decision support.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="section-title reveal">
+      <small>Selected Work</small>
+      <h2>Projects built to prove depth, not just activity.</h2>
+    </div>
+
+    <div class="projects">
+      <div class="card reveal project-card" data-project="hydro">
+        <h3>9atra — AI Hydrological Forecasting</h3>
+        <p>
+          A decision-support system for predicting monthly dam inflow using LSTM, Random Forest, SVR and XGBoost,
+          with an intelligent chatbot interface for hydrological insights.
+        </p>
+        <div class="tags">
+          <span>Python</span><span>LSTM</span><span>SVR</span><span>XGBoost</span><span>Flask</span>
+        </div>
+      </div>
+
+      <div class="card reveal project-card" data-project="bassin">
+        <h3>Bassin Predictor</h3>
+        <p>
+          Satellite imagery pipeline for basin and pond detection using AI segmentation models, geospatial processing,
+          automated tiling and inference workflows.
+        </p>
+        <div class="tags">
+          <span>PyTorch</span><span>Segmentation</span><span>GIS</span><span>Satellite Imagery</span>
+        </div>
+      </div>
+
+      <div class="card reveal project-card" data-project="plant">
+        <h3>Plant Disease Detection</h3>
+        <p>
+          Deep learning computer vision model that classifies plant leaf diseases from uploaded images
+          to support smart agriculture and early diagnosis.
+        </p>
+        <div class="tags">
+          <span>TensorFlow</span><span>CNN</span><span>Computer Vision</span><span>AI</span>
+        </div>
+      </div>
+
+      <div class="card reveal project-card" data-project="apps">
+        <h3>Restaurant & Store Management Apps</h3>
+        <p>
+          Mobile applications for restaurant and store management using Java, Spring Boot and Firebase,
+          focused on daily business operations.
+        </p>
+        <div class="tags">
+          <span>Java</span><span>Spring Boot</span><span>Firebase</span><span>Android</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="section-title reveal">
+      <small>Technical Stack</small>
+      <h2>The tools behind the systems.</h2>
+    </div>
+
+    <div class="skills">
+      <div class="skill-box reveal">
+        <h3>AI & Data</h3>
+        <p>Python, TensorFlow, PyTorch, Scikit-learn, Pandas, NumPy, NLP, LLMs</p>
+      </div>
+
+      <div class="skill-box reveal">
+        <h3>Frontend</h3>
+        <p>React.js, JavaScript, HTML, CSS, responsive interfaces, UI design</p>
+      </div>
+
+      <div class="skill-box reveal">
+        <h3>Backend</h3>
+        <p>Java, Spring Boot, Flask, APIs, Firebase, application logic</p>
+      </div>
+
+      <div class="skill-box reveal">
+        <h3>Databases & Tools</h3>
+        <p>MySQL, Oracle, MongoDB, Git, Docker, VS Code, Android Studio</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="achievements">
+    <div class="section-title reveal">
+      <small>Achievements & Recognition</small>
+      <h2>Recognition earned through innovation and impact.</h2>
+    </div>
+
+    <div class="projects">
+      <div class="card reveal">
+        <div class="achievement-slider">
+          <img src="images/iwra.png" class="achievement-img active" alt="IWRA achievement photo">
+          <img src="images/iwraa.jpeg" class="achievement-img" alt="IWRA certificate photo">
+          <img src="images/iwraaa.jpeg" class="achievement-img" alt="IWRA presentation photo">
+          <img src="images/iwrrr.jpeg" class="achievement-img" alt="IWRA event photo">
+          <span class="slider-hint">Click to view</span>
+        </div>
+
+        <h3>🥇 First Place — IWRA Early-Career Lightning Talk</h3>
+        <p>
+          Winner of the Early-Career Lightning Talk competition during the XIX World Water Congress in Marrakech
+          for presenting an AI-driven hydrological forecasting system for Ahmed El Hansali Dam.
+        </p>
+        <div class="tags">
+          <span>IWRA</span><span>Artificial Intelligence</span><span>Hydrology</span><span>Research</span>
+        </div>
+      </div>
+
+      <div class="card reveal">
+        <div class="achievement-slider">
+          <img src="images/agronobot.jpeg" class="achievement-img active" alt="AGRONOBOT award photo">
+          <img src="images/agro.jpeg" class="achievement-img" alt="AGRONOBOT project photo">
+          <img src="images/agroo.jpeg" class="achievement-img" alt="AGRONOBOT event photo">
+          <span class="slider-hint">Click to view</span>
+        </div>
+
+        <h3>🏆 AGRONOBOT — Coup de Cœur Award</h3>
+        <p>
+          Received the Coup de Cœur distinction during the national innovation competition organized by INJAZ Al-Maghrib
+          for the AGRONOBOT project.
+        </p>
+        <div class="tags">
+          <span>Innovation</span><span>AgriTech</span><span>AI Project</span>
+        </div>
+      </div>
+
+      <div class="card reveal">
+        <div class="achievement-slider">
+          <img src="images/wolf.jpeg" class="achievement-img active" alt="Wolfram certificate photo">
+
+          <span class="slider-hint">Click to view</span>
+        </div>
+
+        <h3>📜 Wolfram Research Certification</h3>
+        <p>
+          Earned the Machine Learning Statistical Foundations Professional Certificate by Wolfram Research,
+          covering machine learning, statistical analysis and linear algebra.
+        </p>
+        <div class="tags">
+          <span>Machine Learning</span><span>Statistics</span><span>Wolfram</span>
+        </div>
+      </div>
+
+      <div class="card reveal">
+        <div class="achievement-slider">
+          <img src="images/master.jpg" class="achievement-img active" alt="AI masterclass photo">
+          <img src="images/master.jpeg" class="achievement-img" alt="AI presentation photo">
+          <img src="images/mss.jpeg" class="achievement-img" alt="AI workshop photo">
+          <span class="slider-hint">Click to view</span>
+        </div>
+
+        <h3>🎤 AI Speaker & Masterclass Presenter</h3>
+        <p>
+          Delivered AI-focused presentations and masterclasses on intelligent systems, AI tools for business
+          and the future of artificial intelligence.
+        </p>
+        <div class="tags">
+          <span>Public Speaking</span><span>AI</span><span>Leadership</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="contact reveal">
+      <h2>Let’s build something intelligent.</h2>
+      <p>
+        Open to AI engineering, full-stack development, research collaborations and innovative projects.
+      </p>
+
+      <div class="buttons" style="justify-content:center;">
+        <a href="mailto:zakaria.dahbi875@gmail.com" class="btn btn-primary">Email Me</a>
+        <a href="https://github.com/ZAKARIADAHBI2" target="_blank" class="btn btn-secondary">GitHub</a>
+        <a href="https://www.linkedin.com/in/zakaria-dahbi-133b7a17a/" target="_blank"
+          class="btn btn-secondary">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Zakaria Dahbi — AI & Full-Stack Portfolio
+  </footer>
+
+
+  <div class="project-modal" id="project-modal">
+    <div class="project-modal-content">
+      <button class="close-project-modal" onclick="closeProjectModal()"
+        aria-label="Close project architecture">×</button>
+
+      <div class="modal-kicker" id="project-kicker">Project Architecture</div>
+      <h2 id="project-title"></h2>
+      <p class="modal-desc" id="project-desc"></p>
+
+      <div class="architecture-grid" id="project-architecture"></div>
+
+      <div class="modal-columns">
+        <div class="modal-box">
+          <h3>Key Features</h3>
+          <ul id="project-features"></ul>
+        </div>
+
+        <div class="modal-box">
+          <h3>Technical Flow</h3>
+          <ul id="project-flow"></ul>
+        </div>
+      </div>
+
+      <div class="modal-tech" id="project-tech"></div>
+    </div>
+  </div>
+
+  <div class="lightbox" id="lightbox">
+    <button class="close-lightbox" onclick="closeLightbox()" aria-label="Close image viewer">×</button>
+    <button class="lightbox-btn prev" onclick="changeLightbox(-1)" aria-label="Previous image">‹</button>
+    <img id="lightbox-img" src="" alt="Expanded achievement image">
+    <button class="lightbox-btn next" onclick="changeLightbox(1)" aria-label="Next image">›</button>
+  </div>
+
+  <script>
+    const revealElements = document.querySelectorAll(".reveal");
+
+    function revealOnScroll() {
+      revealElements.forEach((element) => {
+        const elementTop = element.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+
+        if (elementTop < windowHeight - 80) {
+          element.classList.add("active");
+        }
+      });
+    }
+
+    window.addEventListener("scroll", revealOnScroll);
+    revealOnScroll();
+
+    const projectArchitectures = {
+      hydro: {
+        kicker: "Flagship AI Research Project",
+        title: "9atra — AI Hydrological Forecasting Architecture",
+        desc: "A complete decision-support system that transforms raw rainfall and dam inflow data into forecasts, visual insights and natural-language interaction through an intelligent chatbot.",
+        architecture: [
+          ["Data Sources", "Monthly rainfall stations and observed dam inflow data."],
+          ["Preprocessing", "Missing values, outliers, rolling statistics, lags and seasonal features."],
+          ["ML Models", "LSTM, SVR, Random Forest and XGBoost trained and compared."],
+          ["9atra Interface", "Chatbot and dashboard for predictions, comparisons and hydrological analysis."]
+        ],
+        features: [
+          "Monthly dam inflow forecasting",
+          "Multi-model comparison",
+          "Hydrological visual analytics",
+          "Natural-language chatbot interaction",
+          "Decision-support for water resource management"
+        ],
+        flow: [
+          "Collect precipitation and inflow data",
+          "Clean, transform and engineer time-series features",
+          "Train and evaluate forecasting models",
+          "Expose predictions through Flask and chatbot UI",
+          "Help users explore results and scenarios"
+        ],
+        tech: ["Python", "Pandas", "Scikit-learn", "LSTM", "SVR", "XGBoost", "Random Forest", "Flask", "HTML/CSS/JS"]
+      },
+
+      bassin: {
+        kicker: "AI + Satellite Imagery Pipeline",
+        title: "Bassin Predictor Architecture",
+        desc: "An automated AI pipeline designed to detect basins and ponds from satellite imagery using geospatial tiling, computer vision and segmentation inference.",
+        architecture: [
+          ["Geo Data", "Region coordinates and pond centroid GeoJSON files."],
+          ["Tile Download", "Satellite tiles collected from map imagery providers."],
+          ["AI Inference", "Segmentation models generate probability masks."],
+          ["Output Maps", "Detected water areas are visualized and exported for analysis."]
+        ],
+        features: [
+          "Satellite image tile processing",
+          "Automated region-based pipeline",
+          "Segmentation-based pond detection",
+          "CLI workflow for download and prediction",
+          "Environmental monitoring use case"
+        ],
+        flow: [
+          "Select target region",
+          "Download and prepare satellite tiles",
+          "Run image preprocessing",
+          "Load trained segmentation model",
+          "Generate masks and detection outputs"
+        ],
+        tech: ["Python", "PyTorch", "Segmentation Models", "GIS", "GeoJSON", "Mercantile", "OpenCV", "CLI"]
+      },
+
+      plant: {
+        kicker: "Computer Vision Project",
+        title: "Plant Disease Detection Architecture",
+        desc: "A computer vision system that classifies plant leaf images to identify possible diseases and support fast agricultural diagnosis.",
+        architecture: [
+          ["Image Upload", "User uploads a plant leaf image."],
+          ["Preprocessing", "Image resizing, normalization and preparation."],
+          ["CNN Model", "Deep learning model predicts disease class."],
+          ["Prediction UI", "Result is displayed with class name and confidence."]
+        ],
+        features: [
+          "Leaf image classification",
+          "Deep learning prediction model",
+          "Upload-based interface",
+          "Smart agriculture use case",
+          "Fast disease diagnosis support"
+        ],
+        flow: [
+          "Upload image",
+          "Preprocess and normalize input",
+          "Run model inference",
+          "Return disease prediction",
+          "Display result to user"
+        ],
+        tech: ["Python", "TensorFlow", "CNN", "Computer Vision", "Image Classification", "Flask/Interface"]
+      },
+
+      apps: {
+        kicker: "Mobile / Backend Project",
+        title: "Restaurant & Store Management Apps Architecture",
+        desc: "Two business management applications built to support daily operations for restaurants and stores, combining mobile interfaces, backend services and Firebase data handling.",
+        architecture: [
+          ["Mobile UI", "Android screens for users and business operations."],
+          ["Business Logic", "Restaurant and store workflows handled in the app."],
+          ["Backend/API", "Java and Spring Boot structure for application logic."],
+          ["Firebase", "Real-time data storage and synchronization."]
+        ],
+        features: [
+          "Restaurant management workflow",
+          "Store management workflow",
+          "Firebase data integration",
+          "Java-based mobile application",
+          "Operational dashboard experience"
+        ],
+        flow: [
+          "User opens mobile app",
+          "Actions are handled through app logic",
+          "Data is stored and updated in Firebase",
+          "Business information stays organized",
+          "Managers track daily operations"
+        ],
+        tech: ["Java", "Spring Boot", "Firebase", "Android Studio", "XML", "Mobile Development"]
+      }
+    };
+
+    function openProjectModal(projectKey) {
+      const project = projectArchitectures[projectKey];
+      if (!project) return;
+
+      document.getElementById("project-kicker").textContent = project.kicker;
+      document.getElementById("project-title").textContent = project.title;
+      document.getElementById("project-desc").textContent = project.desc;
+
+      const architecture = document.getElementById("project-architecture");
+      architecture.innerHTML = project.architecture.map((step, index) => `
+        <div class="arch-step">
+          <span>${index + 1}</span>
+          <h4>${step[0]}</h4>
+          <p>${step[1]}</p>
+        </div>
+      `).join("");
+
+      document.getElementById("project-features").innerHTML =
+        project.features.map((item) => `<li>${item}</li>`).join("");
+
+      document.getElementById("project-flow").innerHTML =
+        project.flow.map((item) => `<li>${item}</li>`).join("");
+
+      document.getElementById("project-tech").innerHTML =
+        project.tech.map((item) => `<span>${item}</span>`).join("");
+
+      document.getElementById("project-modal").classList.add("active");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeProjectModal() {
+      document.getElementById("project-modal").classList.remove("active");
+      document.body.style.overflow = "";
+    }
+
+    document.querySelectorAll(".project-card").forEach((card) => {
+      card.addEventListener("click", () => {
+        openProjectModal(card.dataset.project);
+      });
+    });
+
+
+    let lightboxImages = [];
+    let lightboxIndex = 0;
+
+    function openLightbox(images, index) {
+      lightboxImages = images;
+      lightboxIndex = index;
+
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightbox-img");
+
+      lightboxImg.src = lightboxImages[lightboxIndex];
+      lightbox.classList.add("active");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeLightbox() {
+      document.getElementById("lightbox").classList.remove("active");
+      document.body.style.overflow = "";
+    }
+
+    function changeLightbox(direction) {
+      if (!lightboxImages.length) return;
+
+      lightboxIndex += direction;
+
+      if (lightboxIndex < 0) {
+        lightboxIndex = lightboxImages.length - 1;
+      }
+
+      if (lightboxIndex >= lightboxImages.length) {
+        lightboxIndex = 0;
+      }
+
+      document.getElementById("lightbox-img").src = lightboxImages[lightboxIndex];
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const sliders = document.querySelectorAll(".achievement-slider");
+
+      sliders.forEach((slider) => {
+        const images = Array.from(slider.querySelectorAll(".achievement-img"));
+        let index = 0;
+
+        if (!images.length) return;
+
+        images.forEach((img) => img.classList.remove("active"));
+        images[0].classList.add("active");
+
+        if (images.length > 1) {
+          setInterval(() => {
+            images[index].classList.remove("active");
+            index = (index + 1) % images.length;
+            images[index].classList.add("active");
+          }, 2500);
+        }
+
+        slider.addEventListener("click", () => {
+          openLightbox(images.map((img) => img.src), index);
+        });
+      });
+    });
+
+
+    document.getElementById("project-modal").addEventListener("click", (event) => {
+      if (event.target.id === "project-modal") {
+        closeProjectModal();
+      }
+    });
+
+    document.getElementById("lightbox").addEventListener("click", (event) => {
+      if (event.target.id === "lightbox") {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      const lightboxIsOpen = document.getElementById("lightbox").classList.contains("active");
+      const projectModalIsOpen = document.getElementById("project-modal").classList.contains("active");
+
+      if (event.key === "Escape" && projectModalIsOpen) {
+        closeProjectModal();
+      }
+
+      if (!lightboxIsOpen) return;
+
+      if (event.key === "Escape") {
+        closeLightbox();
+      }
+
+      if (event.key === "ArrowRight") {
+        changeLightbox(1);
+      }
+
+      if (event.key === "ArrowLeft") {
+        changeLightbox(-1);
+      }
+    });
+  </script>
+
+</body>
+
+</html>
